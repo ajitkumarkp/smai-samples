@@ -1,0 +1,19 @@
+
+SchemaVersion: '1.0'
+SageMaker:
+  PythonSDK:
+    Modules:
+      TelemetryOptOut: true
+      RemoteFunction:
+        InstanceType: ml.m5.xlarge
+        EnvironmentVariables: {'MLFLOW_TRACKING_URI': arn:aws:sagemaker:us-east-1:640588260050:mlflow-app/app-X7JSWRKLADBV, 'LOGNAME': ajkp, 'MLFLOW_EXPERIMENT_NAME': abalone-sm-pipeline-exp, 'AWS_REGION': us-east-1}
+        Dependencies: ./requirements.txt
+        IncludeLocalWorkDir: True
+        CustomFileFilter:
+          IgnoreNamePatterns:
+          - "data/*"
+          - "models/*"
+          - "*.ipynb"
+          - "__pycache__"
+
+
